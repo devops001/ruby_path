@@ -1,21 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'minitest/autorun'
-require_relative 'cards'
-
-class TestCard < Minitest::Test
-  def setup
-    @card = Card.new("Test Card", "this is a test card")
-  end
-  def test_name
-    assert_equal("Test Card", @card.name)
-  end
-  def test_desc
-    assert_equal("this is a test card", @card.desc)
-  end
-end
+require_relative '../creature'
 
 class TestCreature < Minitest::Test
+
   def setup
     @rat = Creature.new("Rat", "a rat")
   end
