@@ -47,6 +47,21 @@ class TestCreature < Minitest::Test
     end
   end
 
+  def test_take_too_much_damage
+    starting_hp = @rat.hp
+    amount = starting_hp + 10
+    assert_equal(amount-10, @rat.take_damage(amount))
+    assert_equal(0, @rat.hp)
+  end
+
+  def test_heal_too_much
+    starting_hp = @rat.hp
+    amount = starting_hp + 10
+    @rat.take_damage(starting_hp)
+    assert_equal(amount-10, @rat.heal(amount))
+    assert_equal(@rat.max_hp, @rat.hp)
+  end
+
   def test_dead_and_alive
     amount = @rat.hp
     assert(@rat.hp > 0)
