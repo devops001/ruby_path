@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'minitest/autorun'
-require_relative '../creature'
+require_relative 'test_helper'
 
 class TestCreature < Minitest::Test
 

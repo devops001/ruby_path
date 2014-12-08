@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'minitest/autorun'
-require_relative '../card'
+require_relative 'test_helper'
 
 class TestCard < Minitest::Test
   def setup
