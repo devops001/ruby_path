@@ -4,11 +4,11 @@ require_relative 'card'
 class Creature < Card
   attr_reader :power, :defense, :hp, :max_hp
 
-  def initialize(name, desc, power=1, defense=1)
+  def initialize(name, desc, power=1, defense=1, max_hp=nil)
     super(name, desc)
     @power   = power
     @defense = defense
-    @max_hp  = 3 + rand(6)
+    @max_hp  = max_hp.nil? ? 3+rand(6) : max_hp
     @hp      = @max_hp
   end
 
