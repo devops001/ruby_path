@@ -12,6 +12,19 @@ class TestInteraction < Minitest::Test
     @ambush.add_creature(@rat2)
   end
 
+  def test_load_all
+    interactions = Interaction.load_all
+    assert(interactions.count >= 2)
+    ambush     = interactions["ambush"]
+    dark_alley = interactions["dark_alley"]
+    assert_equal("Ambush", ambush.name)
+    assert_equal("Dark Alley", dark_alley.name)
+    assert(ambush.creatures.count >= 1)
+    assert(dark_alley.creatures.count >= 2)
+    assert_equal(false, ambush.completed?)
+    assert_equal(false, dark_alley.completed?)
+  end
+
   def test_creatures
     assert_equal(2, @ambush.creatures.count)
   end

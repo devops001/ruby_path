@@ -1,4 +1,5 @@
 
+require 'yaml'
 require_relative 'card'
 
 class Interaction < Card
