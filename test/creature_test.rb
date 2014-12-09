@@ -8,6 +8,19 @@ class TestCreature < Minitest::Test
     @rat = Creature.new("Rat", "a rat")
   end
 
+  def test_load_all
+    creatures = Creature.load_all
+    assert(creatures.count >= 2)
+    rat = creatures["rat"]
+    dog = creatures["dog"]
+    assert_equal(Creature, rat.class)
+    assert_equal(Creature, dog.class)
+    assert(rat.hp >= 3)
+    assert(dog.hp >= 3)
+    assert_equal("Rat", rat.name)
+    assert_equal("Dog", dog.name)
+  end
+
   def test_default_attributes
     assert_equal(1, @rat.power)
     assert_equal(1, @rat.defense)

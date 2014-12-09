@@ -1,8 +1,12 @@
 
+require 'yaml'
+require 'pp'
 require_relative 'card'
 
 class Creature < Card
   attr_reader :power, :defense, :hp, :max_hp
+
+  @@creatures = Hash.new
 
   def initialize(name, desc, power=1, defense=1, max_hp=nil)
     super(name, desc)
@@ -10,6 +14,16 @@ class Creature < Card
     @defense = defense
     @max_hp  = max_hp.nil? ? 3+rand(6) : max_hp
     @hp      = @max_hp
+  end
+
+  def self.load_all
+    @@creatures.clear
+    data = YAML.load_file(File.join(__dir__, 'data', 'creatures.yml'))
+    data.keys.each do |name|
+      c = data[name]
+      @@creatures[name] = Creature.new(c['name'], c['desc'], c['power'], c['defense'], c['max_hp'])
+    end
+    @@creatures
   end
 
   def attack

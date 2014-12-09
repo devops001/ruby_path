@@ -1,0 +1,27 @@
+
+ambush:
+  min: 1
+  max: 6
+  creatures:
+    - rat
+    - dog
+
+dark_alley:
+  min: 2
+  max: 3
+  creatures:
+    - rat
+
+dumpster_dive:
+  min: 1
+  max: 1
+  creatures:
+    - rat
+    - dog
+
+dog_park:
+  min: 1
+  max: 6
+  creatures:
+    - dog
+

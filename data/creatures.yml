@@ -1,0 +1,9 @@
+
+rat:
+  name: Rat
+  desc: A rat.
+
+dog:
+  name: Dog
+  desc: A dog.
+
